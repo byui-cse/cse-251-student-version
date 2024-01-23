@@ -36,6 +36,13 @@ this dictionary to make other API calls for data.
    "vehicles": "http://127.0.0.1:8790/vehicles/", 
    "starships": "http://127.0.0.1:8790/starships/"
 }
+
+Outline of API calls to server
+
+1) Use TOP_API_URL to get the dictionary above
+2) Add "6" to the end of the films endpoint to get film 6 details
+3) Use as many threads possible to get the names of film 6 data (people, starships, ...)
+
 """
 
 from datetime import datetime, timedelta
