@@ -79,9 +79,9 @@ def main():
     # process one frame #10
     image_number = 10
 
-    image_file = rf'elephant/image{image_number:03d}.png'
-    green_file = rf'green/image{image_number:03d}.png'
-    process_file = rf'processed/image{image_number:03d}.png'
+    image_file = f'elephant/image{image_number:03d}.png'
+    green_file = f'green/image{image_number:03d}.png'
+    process_file = f'processed/image{image_number:03d}.png'
 
     start_time = timeit.default_timer()
     create_new_frame(image_file, green_file, process_file)
