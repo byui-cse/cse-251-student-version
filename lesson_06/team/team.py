@@ -9,6 +9,9 @@ Purpose: Team Activity
 Instructions:
 
 - Implement the process functions to copy a text file exactly using a pipe
+- Note, while getting your program to work, you can create a smaller text file instead of
+  the ones given.  For example, create a text file with one line of text and get it to work
+  with your program, then add another line of text and so on.
 - After you can copy a text file word by word exactly, change the program (any way you want) to be
   faster (still using the processes).
 """
