@@ -69,19 +69,19 @@ class Queue251():
     """ This is the queue object to use for this assignment. Do not modify!! """
 
     def __init__(self):
-        self.items = []
-        self.max_size = 0
+        self.__items = []
+        self.__max_size = 0
 
     def get_max_size(self):
-        return self.max_size
+        return self.__max_size
 
     def put(self, item):
-        self.items.append(item)
-        if len(self.items) > self.max_size:
-            self.max_size = len(self.items)
+        self.__items.append(item)
+        if len(self.__items) > self.__max_size:
+            self.__max_size = len(self.__items)
 
     def get(self):
-        return self.items.pop(0)
+        return self.__items.pop(0)
 
 
 class Factory(threading.Thread):

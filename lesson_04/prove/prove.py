@@ -61,17 +61,17 @@ class Queue251():
     """ This is the queue object to use for this assignment. Do not modify!! """
 
     def __init__(self):
-        self.items = []
+        self.__items = []
 
     def size(self):
-        return len(self.items)
+        return len(self.__items)
 
     def put(self, item):
-        assert len(self.items) <= 10
-        self.items.append(item)
+        assert len(self.__items) <= 10
+        self.__items.append(item)
 
     def get(self):
-        return self.items.pop(0)
+        return self.__items.pop(0)
 
 
 class Factory(threading.Thread):
