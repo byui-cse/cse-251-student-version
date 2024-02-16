@@ -20,7 +20,7 @@ import datetime
 # Include cse 251 common Python files - Don't change
 from cse251 import *
 
-CONTROL_FILENAME = 'settings.txt'
+CONTROL_FILENAME = 'settings.json'
 BOXES_FILENAME   = 'boxes.txt'
 
 # Settings constants
