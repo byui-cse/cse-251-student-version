@@ -1,1 +1,0 @@
-Add code to warn students if the task folder can not be found.
