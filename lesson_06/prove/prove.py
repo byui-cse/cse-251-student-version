@@ -66,14 +66,13 @@ class Gift():
         marbles = marbles.replace("'", "")
         return f'Large marble: {self.large_marble}, marbles: {marbles[1:-1]}'
 
-
 class Marble_Creator(mp.Process):
     """ This class "creates" marbles and sends them to the bagger """
 
     colors = ('Gold', 'Orange Peel', 'Purple Plum', 'Blue', 'Neon Silver', 
         'Tuscan Brown', 'La Salle Green', 'Spanish Orange', 'Pale Goldenrod', 'Orange Soda', 
         'Maximum Purple', 'Neon Pink', 'Light Orchid', 'Russian Violet', 'Sheen Green', 
-        'Isabelline', 'Ruby', 'Emerald', 'Middle Red Purple', 'Royal Orange', 'Big Dip O’ruby', 
+        'Isabelline', 'Ruby', 'Emerald', 'Middle Red Purple', 'Royal Orange', 
         'Dark Fuchsia', 'Slate Blue', 'Neon Dark Green', 'Sage', 'Pale Taupe', 'Silver Pink', 
         'Stop Red', 'Eerie Black', 'Indigo', 'Ivory', 'Granny Smith Apple', 
         'Maximum Blue', 'Pale Cerulean', 'Vegas Gold', 'Mulberry', 'Mango Tango', 
