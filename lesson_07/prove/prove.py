@@ -11,6 +11,8 @@ Instructions:
 See Canvas for the full instructions for this assignment. You will need to complete the TODO comment
 below before submitting this file:
 
+Note: each of the 5 task functions need to return a string.  They should not print anything.
+
 TODO:
 
 Add your comments here on the pool sizes that you used for your assignment and why they were the best choices.
@@ -98,7 +100,8 @@ def task_upper(text):
 def task_sum(start_value, end_value):
     """
     Add the following to the global list:
-        sum of {start_value:,} to {end_value:,} = {total:,}
+        sum of all numbers between start_value and end_value
+        answer = {start_value:,} to {end_value:,} = {total:,}
     """
     pass
 
@@ -120,7 +123,7 @@ def main():
 
     # TODO Create process pools
 
-    # TODO change the following to start the pools
+    # TODO change the following if statements to start the pools
     
     count = 0
     task_files = glob.glob("tasks/*.task")

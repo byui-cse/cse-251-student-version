@@ -4,7 +4,7 @@ Lesson: L07 Prove
 File:   create_tasks.py
 Author: Brother Comeau
 
-Purpose: Create task files for this lessons prove assignment.
+Purpose: Create task files for this prove assignment.
 """
 
 import json

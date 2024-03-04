@@ -35,6 +35,9 @@ def solve_path(maze):
         The path is a list of positions, (x, y) """
     path = []
     # TODO: Solve the maze recursively while tracking the correct path.
+
+    # Hint: You can create an inner function to do the recursion
+
     return path
 
 
