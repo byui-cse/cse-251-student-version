@@ -87,24 +87,6 @@ def solve_find_end(maze):
     global stop
     stop = False
 
-    def _solve(x, y):
-        # base cases
-
-        # find the end!!
-
-        # find a pos with no moves
-
-        # get possible moves
-        for x1, y2 in poss:
-            
-
-
-
-    x, y = maze.get_start_pos()
-    t = threading.Thread(target=_solve, args=(x, y))
-    t.start()
-    t.join()
-
 
 
 
