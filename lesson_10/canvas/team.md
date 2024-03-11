@@ -12,7 +12,7 @@ There are two team activities:
 You will be implementing two different solutions to the Dining Philosophers problem. Refer to the header of the Python files for the complete requirements for this team activity:
 
 - [Wednesday's Team Activity](team1.md)
-- [Friday's Team Activity](team2.py)
+- [Friday's Team Activity](team2.md)
 
 ### Sample Solutions
 
