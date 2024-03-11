@@ -9,7 +9,7 @@ There are two team activities:
 
 ### Assignment
 
-You will be implementing two different solutions to the Dining Philosophers problem. Refer to the header of the Python files for the complete requirements for this team activity:
+Here are the files for the two team activities this week.
 
 - [Wednesday's Team Activity](team1.md)
 - [Friday's Team Activity](team2.md)
