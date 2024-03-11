@@ -85,8 +85,27 @@ def solve_find_end(maze):
     """ Finds the end position using threads. Nothing is returned. """
     # When one of the threads finds the end position, stop all of them.
     global stop
-    # TODO: Complete this function.
     stop = False
+
+    def _solve(x, y):
+        # base cases
+
+        # find the end!!
+
+        # find a pos with no moves
+
+        # get possible moves
+        for x1, y2 in poss:
+            
+
+
+
+    x, y = maze.get_start_pos()
+    t = threading.Thread(target=_solve, args=(x, y))
+    t.start()
+    t.join()
+
+
 
 
 def find_end(log, filename, delay):
