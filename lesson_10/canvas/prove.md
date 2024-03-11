@@ -8,7 +8,7 @@ You will be implementing the reader writer problem using shared memory in Python
 
 ## Assignment
 
-The project file is `assignment.py` in the `week10/assignment` folder in GitHub.  Refer to this file for instructions.
+The project file is `prove.py` in the `week_10/prove` folder in GitHub.  Refer to this file for instructions.
 
 For this assignment, the [Circular Buffer article](https://en.wikipedia.org/wiki/Circular_buffer) will help you understand how to use the ShareableList.
 
@@ -21,8 +21,6 @@ For this assignment, the [Circular Buffer article](https://en.wikipedia.org/wiki
 1003 values sent
 1003 values received
 ```
-
-
 
 ## Rubric
 
