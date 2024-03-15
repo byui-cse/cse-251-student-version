@@ -5,6 +5,9 @@ File: team2.py
 Author: Brother Comeau
 Instructions:
 - Look for the TODO comments
+
+The Python function ord() will help you.
+
 """
 
 import time
