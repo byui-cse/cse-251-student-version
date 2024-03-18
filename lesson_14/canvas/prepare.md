@@ -1,10 +1,2 @@
-# Lesson 14 Prepare: ???
+# Lesson 14 Prepare: None
 
-Section | Content
---- | ---
-
-:key: = Vital concepts that we will continue to build on in coming lessons / key learning outcomes for this course.
-
-### Overview
-
-???
