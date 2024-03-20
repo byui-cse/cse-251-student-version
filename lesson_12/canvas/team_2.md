@@ -8,7 +8,7 @@ In this team activity, you will be finding primes from an array of numbers using
 
 ## Assignment
 
-Download the file `team2.go` from the folder `week12/team2` in Github.
+Download the file `team2.go` from the folder `week12/team2` in Github. It's very important to place this go file in it's own folder.
 
 ### Sample Output of the program
 

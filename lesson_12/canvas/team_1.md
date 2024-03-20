@@ -10,7 +10,7 @@ You will be modifying an existing Go program to use goroutines to retrieve Star 
 
 Note: this is a team activity, you should take turns coding each week.  If a team member already knows how to implement the activity, they should let another team member do the coding.
 
-The file `team1.go` is found in the folder `week12\team1` in Github.
+The file `team1.go` is found in the folder `week12\team1` in Github.  It's very important to place this go file in it's own folder.
 
 ### Using online replit.com
 
