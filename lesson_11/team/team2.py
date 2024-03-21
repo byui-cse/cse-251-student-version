@@ -37,8 +37,8 @@ Steps:
 
 Note: Testing means having lots of concurrency/parallelism happening.  Also
 some methods for lists are thread safe - some are not.
-
 """
+
 import time
 import threading
 import multiprocessing as mp
@@ -47,13 +47,16 @@ import multiprocessing as mp
 class Queue_t:
     pass
 
+
 # -------------------------------------------------------------------
 class Stack_t:
     pass
 
+
 # -------------------------------------------------------------------
 class Queue_p:
     pass
+
 
 # -------------------------------------------------------------------
 class Stack_p:
@@ -62,6 +65,7 @@ class Stack_p:
 
 def main():
     pass
+
 
 if __name__ == '__main__':
     main()
