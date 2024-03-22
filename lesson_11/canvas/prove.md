@@ -27,7 +27,7 @@ In a hotel, there are a number of guests and cleaning staff.  There is a confere
 8. Remember, multiple guests must be able to be in the room at the same time.
 9. Run your program for 1 minute.  While your program is running, keep track of the number of times the room of cleaned and the number of parties held.  A party starts with the lighting being turned on and ends when the lights are turned off.
 10. Make sure your assignment matches the format/text of the sample output below.
-11. You are not allowed to use lists or queues to control access to the room. You can use a list to keep track of the processes that you create.  The solution requires 2 locks.
+11. You are not allowed to use lists or queues to control access to the room. The reason for not using lists or queues for control access to the room is that it will not help solve the problem.  You can use a list to keep track of the processes that you create.  The solution requires 2 locks.
 1. Do not use try...except statements
 
 ### Sample output of the assignment
