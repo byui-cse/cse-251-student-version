@@ -21,14 +21,16 @@ STOPPING_PARTY_MESSAGE  = 'Turning off the lights  ^^^^^^^^^^^^^^^^^^^^^^^^^^'
 STARTING_CLEANING_MESSAGE =  'Starting to clean the room >>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
 STOPPING_CLEANING_MESSAGE  = 'Finish cleaning the room <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 
-def cleaner_waiting():
+def cleaner_waiting(id):
+    print(f'Cleaner: {id} waiting...')
     time.sleep(random.uniform(0, 2))
 
 def cleaner_cleaning(id):
     print(f'Cleaner: {id}')
     time.sleep(random.uniform(0, 2))
 
-def guest_waiting():
+def guest_waiting(id):
+    print(f'Guest: {id} waiting...')
     time.sleep(random.uniform(0, 2))
 
 def guest_partying(id, count):

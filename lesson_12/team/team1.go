@@ -1,4 +1,6 @@
-/* -----------------------------------------------------------
+/*
+	-----------------------------------------------------------
+
 Course: CSE 251
 Lesson Week: 12
 File: team1.go
@@ -11,9 +13,9 @@ Part 1
 - Take this program and use goroutines for the function getPerson().
 
 Part 2
-- Create a function "getSpecies()" that will receive the following urls
-  using that function as a goroutine.
-- For a species, display name, average_height and language
+  - Create a function "getSpecies()" that will receive the following urls
+    using that function as a goroutine.
+  - For a species, display name, average_height and language
 
 "http://swapi.dev/api/species/1/",
 "http://swapi.dev/api/species/2/",
@@ -36,7 +38,8 @@ Part 2
 "http://swapi.dev/api/species/36/",
 "http://swapi.dev/api/species/37/",
 
------------------------------------------------------------ */
+-----------------------------------------------------------
+*/
 package main
 
 import (
@@ -99,6 +102,9 @@ func getPerson(url string) {
 }
 
 func main() {
+
+	// TODO: Review wait groups for this problem
+
 	urls := []string{
 		"http://swapi.dev/api/people/1/",
 		"http://swapi.dev/api/people/2/",
