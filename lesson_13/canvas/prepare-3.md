@@ -5,10 +5,7 @@ Section | Content
 
 :key: = Vital concepts that we will continue to build on in coming lessons / key learning outcomes for this course.
 
-### Overview
-
-![](../site/banner.png)
-
+# Overview
 
 The reason to learn about file systems is that they effect execution times of programs.  In particular, concurrent and parallel programs.
 
@@ -94,7 +91,7 @@ Examples of data stored in the FCB structure:
 
 The FAT file system uses a linked-list method of managing file data.  In the directory table, each file has an entry.  This entry refers to the starting block of the files' data.  Reading a file, requires the operating system to transverse this list of blocks.
 
-![](fat-fs.png)
+![](./assets/fat-fs.png)
 
 ## Linux File System
 
@@ -102,13 +99,13 @@ The Linux file system uses an indexing block method.  The first/main file block 
 
 Note, that the single indirect pointer points to a 4k block.  That one block contains 1024 pointers each to a file block.  This is for a 32-bit file system.  That one block with 1024 pointers means that it can manage 1024 4KB blocks or 4MB amount of file data.  The double indirect can manage 4GB and so on.
 
-![](linux-fs.png)
+![](./assets/linux-fs.png)
 
 ## Hard drive structure
 
 Spinning hard drives how the following parts.  Note that all of the heads move at the same time.  The is **NO parallelism** in reading or writing to a drive.  All requests to read/write must be serial.  The device drivers and operating systems manage these requests.
 
-![](spinningdrive.png)
+![](./assets/spinningdrive.png)
 
 ### Windows chkdsk program
 
@@ -143,5 +140,5 @@ The factors that limit the time to access the data on an HDD are mostly related 
 
 One of the important measures for SSD speed is IOPS (Input/output operations per second).  The higher this number, the faster the drive in managing read/write requests.
 
-![](ssd-iops.png)
+![](./assets/ssd-iops.png)
 

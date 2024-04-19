@@ -5,10 +5,6 @@ Section | Content
 
 :key: = Vital concepts that we will continue to build on in coming lessons / key learning outcomes for this course.
 
-### Overview
-
-![](../site/banner.png)
-
 ## processes
 
 A process be definition is a program that is loaded into memory and is running.  
@@ -17,7 +13,7 @@ A process be definition is a program that is loaded into memory and is running.
 
 A process goes to a small number of states in an operating system.
 
-![](process_states.png)
+![](./assets/process_states.png)
 
 
 **Created**
@@ -97,7 +93,7 @@ The success of CPU scheduling depends on an observed property of processes: proc
 
 In the following figure, research has shown that CPU bursts are average short.  There isn't a good reason to create time slices that are large in a OS.
 
-![](cpu_bursts.png)
+![](./assets/cpu_bursts.png)
 
 CPU-scheduling decisions may take place under the following four circumstances:
 
@@ -133,7 +129,7 @@ In many operating systems, processes can have different levels of priority.  Thi
 
 -- [Priority Scheduling - CPU Scheduling](https://www.youtube.com/watch?v=cNdEQKw4apM&list=RDCMUC6-g6xhqyX14ENhZBC2fznw&index=5)
 
-![](level_priorities.png)
+![](./assets/level_priorities.png)
 
 
 ### Multilevel Feedback Queue Scheduling

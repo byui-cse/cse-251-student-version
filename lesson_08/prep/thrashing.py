@@ -1,8 +1,7 @@
 """
-Author: Brother Keers + Bard AI
+Author: Brother Keers + Claude 3 Sonnet
 
-In this example
-
+This example demonstrates cache thrashing and its performance impact.
 """
 
 import time
@@ -10,72 +9,70 @@ import math
 import sys
 import multiprocessing as mp
 import psutil
+import random
 
-def get_safe_ish_large_number():
-    """ Determines a relatively large number that SHOULD still be safe to attempt on your computer. """
-    total_ram = psutil.virtual_memory().total
-    total_ram = math.floor(total_ram / 1024 ** 3)
-    # Create a little over a million numbers for every GB of ram capped at 90% of availability.
-    safe_ish_number = math.floor(1_100_100 * (total_ram * .9))
-    # Stress the CPU by multiplying this large number by 1.5 times the available cores.
-    return math.floor(mp.cpu_count() * 1.5 * safe_ish_number)
-
+def create_large_list(size):
+    """Creates a large list of random integers to ensure cache thrashing."""
+    return [random.randint(0, 2**32) for _ in range(size)]
 
 def reverse_list_recursively_naive(lst, start=0, end=-1):
-    """ A poorly written algorithm that reverses the order of a list manually. """
+    """A poorly written algorithm that reverses the order of a list manually."""
     reversed_list = []
     for i in range(len(lst) - 1, -1, -1):
         reversed_list.append(lst[i])
     return reversed_list
-    """
-    NOTE: This method is actually slightly optimized by Python. Try using the following truly manual
-    method and your computer may crash. Source: https://stackoverflow.com/a/217204/3193156
-
-    def reverse(lst, start=0, end=-1):
-        if start >= len(l)/2: return
-        l[start], l[end] = l[end], l[start]
-        reverse(lst, start + 1, end - 1)
-    """
-
 
 def reverse_list_optimized(lst):
-    """
-    An optimized solution to reversing the order of a list using Pythons built-in list slicing.
-
-    List slicing is a python feature that is heavily optimized because it uses C code under the hood.
-    This improves performance in many ways but most notably:
-
-    - Allows for direct access to the underlying memory layout and optimized machine code execution.
-    - The interpreter and underlying memory management mechanisms try to keep frequently accessed data in the CPU cache, reducing the need for costly memory accesses
-
-    Learn more from the following resources:
-
-    - https://www.geeksforgeeks.org/python-list-slicing/
-    - https://www.codecademy.com/learn/dacp-python-fundamentals/modules/dscp-python-lists/cheatsheet#heading-list-slicing
-    """
+    """An optimized solution to reversing the order of a list using Python's built-in list slicing."""
     return lst[::-1]
 
+def get_estimated_cache_size():
+    """Returns an estimated size of the CPU cache in bytes."""
+    total_memory = psutil.virtual_memory().total
+    ram_based_estimate = int(total_memory * 0.01)  # Assuming cache size is 1% of total memory
+    ram_based_estimate = int(ram_based_estimate / 10) # Reduce down further CHANGE OR REMOVE FOR TRUE PUNISHMENT!
+
+    num_physical_cores = psutil.cpu_count(logical=False)
+    cores_based_estimate = num_physical_cores * 256 * 1024  # Assuming 256 KB cache per core
+
+    return ram_based_estimate, cores_based_estimate
 
 def main():
-    # Get a safe-ish large number and make a list of that many items; this will use all available RAM!
-    numbers = get_safe_ish_large_number()
-    lst = list(range(numbers))
+    # Get estimated sizes of the CPU cache
+    ram_based_estimate, cores_based_estimate = get_estimated_cache_size()
+    print(f"RAM-based cache size estimate: {ram_based_estimate / (1024**2):.2f} MB")
+    print(f"Cores-based cache size estimate: {cores_based_estimate / (1024**2):.2f} MB\n")
 
-    # Show how many numbers we created to the user.
-    print(f'Created list with {numbers:,} items.')
-    
-    # Optimized list reversal first.
+    list_size = 0
+    while True:
+        test_mode = input("Which test would you like to run:\n[1] Simple (Cores-based)\n[2] Punishing (RAM-based)\n")
+        try:
+            option = int(test_mode)
+            if option == 1:
+                list_size = min(ram_based_estimate, cores_based_estimate) * 2
+            elif option == 2:
+                list_size = max(ram_based_estimate, cores_based_estimate)
+            else:
+                print("Invalid option chosen! Please try again.")
+                continue
+            break
+        except:
+            print("Please enter only the number 1 or 2!")
+
+    lst = create_large_list(list_size)
+    print(f"Created list with {list_size:,} items ({list_size * 4 / (1024**2):.2f} MB)")
+
+    # Optimized list reversal first
     start_time = time.time()
     reverse_list_optimized(lst)
     end_time = time.time()
-    print(f'Optimized list reversal time: {end_time - start_time:.5f} secs')
+    print(f"Optimized list reversal time: {end_time - start_time:.5f} secs")
 
-    # Naive list reversal second.
+    # Naive list reversal second
     start_time = time.time()
     reverse_list_recursively_naive(lst)
     end_time = time.time()
-    print(f'Naive list reversal time: {end_time - start_time:.5f} secs')
-
+    print(f"Naive list reversal time: {end_time - start_time:.5f} secs")
 
 if __name__ == "__main__":
     main()

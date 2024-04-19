@@ -20,19 +20,19 @@ Note: This is an option for compiling C++ programs if you don't have a compiler 
 
 2) Select C++ option for a project.
 
-![](replit1.png)
+![](./assets/replit1.png)
 
 3) Give you project a name
 
-![](replit2.png)
+![](./assets/replit2.png)
 
 4) You need to "turn on" the option to compile programs using PThreads.  Click on the small menu button and select `show hidden files`.
 
-![](hidden_files.png)
+![](./assets/hidden_files.png)
 
 5) Next, select the `Makefile` file and add the following `-pthread` where hightlighted in the image below.
 
-![](pthreads_option.png)
+![](./assets/pthreads_option.png)
 
 6) Copy `team1.cpp` content to `main.cpp` in repl.it
 

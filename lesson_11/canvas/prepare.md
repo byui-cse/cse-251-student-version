@@ -22,7 +22,7 @@ A Java program is compiled into an executable.  That executable is made of bytes
 
 We have other Object-oriented programming (OOP) languages such as Python, C++, C#, etc.  In the case of Java, everything (code) needs to be in a class.  For example, there are no global variables outside of classes.
 
-![](overview.png)
+![](./assets/overview.png)
 
 Hello World in Java:
 

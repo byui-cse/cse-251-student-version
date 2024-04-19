@@ -22,7 +22,11 @@ def main():
     write = mp.Process(target=write_thread, args=(shared_q,))
     read = mp.Process(target=read_thread, args=(shared_q,))
 
-    read.start()        # doesn't matter which starts first
+    """
+    It doesn't matter which starts first, but the most efficient solution would be to start the
+    writer first so the reader has something to read right away.
+    """
+    read.start()
     write.start()
 
     write.join()

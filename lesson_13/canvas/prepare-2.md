@@ -5,9 +5,7 @@ Section | Content
 
 :key: = Vital concepts that we will continue to build on in coming lessons / key learning outcomes for this course.
 
-### Overview
-
-![](../site/banner.png)
+# Overview
 
 This lesson is focusing on how memory is managed by operating systems.
 
@@ -32,7 +30,7 @@ When a program is loaded by the operating system, A PCB is created and memory is
 
 Virtual memory is larger than the actual physical memory of the computer.  In the figure below, the address space goes from address 0 to a maximum address (2^31 for 32-bit computers and 2^63 for a 64-bit computer)
 
-![](process_memory.jpg)
+![](./assets/process_memory.jpg)
 
 ## Memory Page
 
@@ -51,17 +49,17 @@ Memory blocks can be any power of 2.  However, they tend to be 4k in size.  If t
 
 When your process is using memory blocks, the operating system makes that process think that it has all of the memory of the system and even more.  When a process uses a memory location, that memory address needs to be translated to an actual memory block on the computer.  This translation from logical to physical memory is managed by the page table.  Each process has their own page table.  
 
-![](page_table.png)
+![](./assets/page_table.png)
 
 A page table also allows the operating system to place infrequently used blocks to be placed in a swap file that is on the hard drive.
 
 Here are the Windows 10 options for setting the ""swap file" or paging file.  It is best that you let the system decide on these values if you don't know what you are changing.
 
-![](performance_options.png)
+![](./assets/performance_options.png)
 
 Click on the "Change.." button above.
 
-![](performance_options2.png)
+![](./assets/performance_options2.png)
 
 [MAC OS Page Swap File](https://apple.stackexchange.com/questions/399878/how-do-i-increase-size-of-virtual-memory-in-mac-os-catalina)
 
@@ -76,7 +74,7 @@ Click on the "Change.." button above.
 
 A virtual address is made up of two main sections (On a 64-bit computer, there are 3 more sections)
 
-![](address_space_translate.png)
+![](./assets/address_space_translate.png)
 
 **Page Offset**
 
@@ -86,7 +84,7 @@ The size of the page offset matches and memory page size.  For a 4K page size sy
 
 The first page of the virtual address is used to index into the TLB.  It is a page number.  On a 32-bit system with page size of 4k, this section is 20 bits.
 
-![](paging_tlb.png)
+![](./assets/paging_tlb.png)
 
 Logical Address are divided in the page number and page offset parts.  The page number is then used by the TLB to see if there is a mapping between virtual page number to physical page number (frame number).  If found, the frame number is combined with the page offset.  This new address is used to access physical memory.
 
@@ -104,4 +102,4 @@ Each time a process needs to be places on the waiting or blocking queue, the OS 
 
 The term the `cache is hot` means that the values in the cache are being used by the process running on the CPU and main memory doesn't need to be accessed.  The `cache is cold` means that the currently running process has no data in the cache and main memory must be accessed.
 
-![](cache.png)
+![](./assets/cache.png)

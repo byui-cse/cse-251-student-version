@@ -4,7 +4,13 @@ import time
 END_MESSAGE = None
 
 def sender(conn): 
-    """ function to send messages to other end of pipe """
+    """
+    Function to send messages to other end of pipe:
+    
+    This will open a 'hallmark movie script' and parse it block of text by block of text. What it
+    does is determine what the block is for, information or a person speaking for example, and then
+    tags the data accordingly sending the 'package' (data) to the receiver to actually be printed.
+    """
     with open('hallmark.txt') as file:
         for line in file:
             # Remove the newline from end of line and skip empty lines.
@@ -25,7 +31,7 @@ def sender(conn):
 
 
 def receiver(conn): 
-    """ function to print the messages received from other end of pipe  """
+    """ Function to print the messages received from other end of pipe  """
     while True:
         data = conn.recv()
 
@@ -42,7 +48,7 @@ def receiver(conn):
         else:
             print(f'\033[33m{movie_line}\033[0m\n')
 
-        time.sleep(len(movie_line) * 0.1)
+        time.sleep(len(movie_line) * 0.07)
 
 
 if __name__ == "__main__": 
