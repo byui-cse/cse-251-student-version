@@ -23,7 +23,7 @@ class Request_Thread(threading.Thread):
         super().__init__()
         self.url = url
         self.response = {}
-        self.status_code = {}
+        self.status_code = 0
 
     def run(self):
         response = requests.get(self.url)
