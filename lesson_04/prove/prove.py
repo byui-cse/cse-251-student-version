@@ -141,7 +141,7 @@ def main():
 
     log.stop_timer(f'All {sum(queue_stats)} have been created')
 
-    xaxis = [i for i in range(1, MAX_QUEUE_SIZE + 1)]
+    xaxis = [i for i in range(0, MAX_QUEUE_SIZE)]
     plot = Plots()
     plot.bar(xaxis, queue_stats, title=f'{sum(queue_stats)} Produced: Count VS Queue Size', x_label='Queue Size', y_label='Count', filename='Production count vs queue size.png')
 
