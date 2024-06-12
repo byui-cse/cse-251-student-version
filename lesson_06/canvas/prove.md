@@ -52,6 +52,8 @@ There is a file `settings.txt` that contains a number of values that will be use
 
 Your program will create a file called `boxes.txt` that will contain the created gifts. Here are a few lines from this file. (You can get the current time using `datetime.now().time()`)
 
+You must use a shared variable in order to count the numnber of gifts created by your program.
+
 ```
 Created - 11:51:13.400554: Large marble: Winner, marbles: Royal Red, Orange Soda, Antique Brass, Arylide Yellow, Bistre Brown, Neon Silver, Pale Taupe
 Created - 11:51:13.499239: Large marble: Zeus, marbles: Cotton Candy, Middle Red Purple, Shandy, Middle Red Purple, Lavender Purple, Gold, Big Dip O’ruby
