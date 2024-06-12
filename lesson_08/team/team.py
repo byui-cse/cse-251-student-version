@@ -88,13 +88,13 @@ def merge_normal(arr):
 
 
 def merge_sort_thread(arr):
-    # TODO - Add your code here to use threads. Each time the merge algorithm does a recursive
+    # TODO - Add your code here to use threads.
     #        call, you need to create a thread to handle that call
     pass
 
 
 def merge_sort_process(arr):
-    # TODO - Add your code here to use threads. Each time the merge algorithm does a recursive
+    # TODO - Add your code here to use process.
     #        call, you need to create a process to handle that call
     pass
 
