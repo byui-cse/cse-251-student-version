@@ -47,7 +47,7 @@ def is_prime(n: int) -> bool:
 
 
 def create_data_txt(filename):
-    # only create if is doesn't exist 
+    # only create if it doesn't exist 
     if not exists(filename):
         with open(filename, 'w') as f:
             for _ in range(1000):
