@@ -5,6 +5,7 @@ Section | Content
 1.1 | [Overview](#overview)
 1.2 | [C and C++ Code](#c-and-c-code)
 2   | [PThreads](#pthreads) :key:
+2.1 | [Thread Classes](#threaded-classes) :key:
 3   | [MMap (Memory Map)](#mmap-memory-map) :key:
 4   | [Shared Memory](#shared-memory) :key:
 
@@ -19,6 +20,8 @@ So far in this course we have explored various aspects of threading and multipro
 Our demonstration code for this week, and part of your assignments, will require C/C++. VS Code is capable of running (compiling and running) C/C++ code, but requires additional setup. You may use VS Code, or any other IDE, as long as you are capable of troubleshooting any issues yourself; your instructor will not have time to setup various environments within the short amount of time dedicated to these assignments.
 
 If you do not have a C/C++ compiler already setup on your computer, **the recommended action is to setup free account at [replit.com](www.replit.com)**. Replit will allow you to write, compile, and run C/C++ programs in the browser. Replit supports many languages and is a good tool to invest your time in.
+
+There are compilers that can be installed for C++ development.  CLion from [JetBrains.com](https://www.jetbrains.com/clion/) is a compiler that can run on Windows, Mac and Linux.  It is free for students.  Also, Windows has Visual Studio and Mac has XCode.
 
 ### PThreads
 
@@ -39,7 +42,7 @@ Example of PThreads. The difference between Python and PThreads is that when you
 
 #include <stdio.h> 
 #include <stdlib.h> 
-#include <unistd.h>  //Header file for sleep()
+#include <unistd.h>  // Header file for sleep()
 #include <pthread.h> 
   
 // A normal C function that is executed as a thread  
@@ -216,6 +219,155 @@ Example 2 completed
 Example 3 - returning values from threads
 out -> x = 20   out -> b = 31.4159
 Example 3 completed
+```
+
+### Threaded Classes
+
+Using PThreads is a low level method of threading in C and C++.  Classes can also be used to add threads to a C++ program in the same method that Python has threaded classes.
+
+#### Example 1 - hello world
+
+The difference between Python threads and c++ threads, is that the c++ thread starts when created.
+
+```c++
+#include <iostream>
+#include <thread>
+using namespace std;
+
+// Function to be executed by the thread
+void hello_world() {
+    cout << "Hello from thread!" << endl;
+}
+
+int main() {
+    // Create a thread object and start it immediately
+    // Note that hello_world is a pointer to the function.
+    thread myThread(hello_world);  
+
+    // Ensure the main thread waits for the new thread to finish
+    myThread.join();  
+
+    cout << "Hello from main!" << endl;
+    return 0;
+}
+```
+
+#### Example 2 - Passing arguments to a thread
+
+This example has a string being passed to the thread.
+
+```c++
+#include <iostream>
+#include <thread>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// Function to be executed by the thread
+void processData(const string& threadName) {
+    cout << "Thread '" << threadName << "' received data: ";
+}
+
+int main() {
+    // Create and start threads with different names
+    thread thread1(processData, "Thread 1"); 
+    thread thread2(processData, "Thread 2"); 
+
+    // Wait for threads to finish
+    thread1.join();
+    thread2.join();
+
+    cout << "Main thread finished." << endl;
+    return 0;
+}
+```
+
+#### Example 3 - using a barrier
+
+This example had 4 threads and 1 barrier.  The threads will wait on the barrier until they are all finished.
+
+```c++
+#include <iostream>
+#include <thread>
+#include <vector>
+#include <barrier>  // For std::barrier (C++20)
+using namespace std;
+
+// Function representing work each thread performs
+void worker(barrier& barrier, int threadId) {
+    cout << "Thread " << threadId << ": Doing some work..." << endl;
+
+    // Simulate work (replace with your actual task)
+    this_thread::sleep_for(chrono::milliseconds(500 + (threadId * 100)));
+
+    cout << "Thread " << threadId << ": Reached barrier, waiting for others..." << endl;
+
+    // Block until all threads reach the barrier
+    barrier.arrive_and_wait(); 
+
+    cout << "Thread " << threadId << ": All threads arrived! Continuing..." << endl;
+}
+
+int main() {
+    int numThreads = 4;
+
+    // Create a barrier that requires all 'numThreads' threads to arrive before proceeding
+    barrier syncBarrier(numThreads);
+
+    // a "list" of threads
+    vector<thread> threads;
+
+    // Launch threads
+    for (int i = 0; i < numThreads; ++i) {
+        threads.emplace_back(worker, ref(syncBarrier), i);
+    }
+
+    // Wait for all threads to complete (join them)
+    for (auto& thread : threads) {
+        thread.join();
+    }
+
+    cout << "All threads finished!" << endl;
+    return 0;
+}
+
+```
+
+#### Example 4 - using a lock
+
+This program will update a global variable using a lock to stop a race condition.
+
+```c++
+#include <iostream>
+#include <thread>
+#include <mutex>
+using namespace std;
+
+mutex counterMutex;  // Global mutex to protect the counter
+int counter = 0; 
+
+void incrementCounter(int numIncrements) {
+    for (int i = 0; i < numIncrements; ++i) {
+        // Lock the mutex before accessing the counter
+        lock_guard<mutex> lock(counterMutex); 
+        ++counter;
+        cout << "Thread ID: " << this_thread::get_id() << ", Counter: " << counter << endl;
+    }
+}
+
+int main() {
+    // Create two threads
+    thread thread1(incrementCounter, 1000);
+    thread thread2(incrementCounter, 1000);
+
+    // Wait for the threads to finish
+    thread1.join();
+    thread2.join();
+
+    cout << "Final Counter: " << counter << endl;
+    return 0;
+}
 ```
 
 ### MMap (Memory Map)
