@@ -4,7 +4,7 @@
 
 There are two team activities:
 
-1. Using C++ PThreads
+1. Using C++ Threads
 1. Using Python's MMAP
 
 ### Assignment
