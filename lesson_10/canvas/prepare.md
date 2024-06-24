@@ -295,35 +295,28 @@ This example had 4 threads and 1 barrier.  The threads will wait on the barrier 
 using namespace std;
 
 // Function representing work each thread performs
-void worker(barrier& barrier, int threadId) {
+void worker(barrier<>& barrier, int threadId) {
     cout << "Thread " << threadId << ": Doing some work..." << endl;
 
-    // Simulate work (replace with your actual task)
     this_thread::sleep_for(chrono::milliseconds(500 + (threadId * 100)));
 
     cout << "Thread " << threadId << ": Reached barrier, waiting for others..." << endl;
 
-    // Block until all threads reach the barrier
-    barrier.arrive_and_wait(); 
+    barrier.arrive_and_wait();
 
     cout << "Thread " << threadId << ": All threads arrived! Continuing..." << endl;
 }
 
 int main() {
-    int numThreads = 4;
+    const int numThreads = 4;
 
-    // Create a barrier that requires all 'numThreads' threads to arrive before proceeding
     barrier syncBarrier(numThreads);
 
-    // a "list" of threads
     vector<thread> threads;
-
-    // Launch threads
     for (int i = 0; i < numThreads; ++i) {
         threads.emplace_back(worker, ref(syncBarrier), i);
     }
 
-    // Wait for all threads to complete (join them)
     for (auto& thread : threads) {
         thread.join();
     }
@@ -331,7 +324,6 @@ int main() {
     cout << "All threads finished!" << endl;
     return 0;
 }
-
 ```
 
 #### Example 4 - using a lock
