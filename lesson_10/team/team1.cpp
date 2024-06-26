@@ -43,7 +43,7 @@ int main() {
     srand(42);
 
     // Create the array of numbers and assign random values to them
-    int arrayValues[NUMBERS];
+    int *arrayValues = new int[NUMBERS];
     for (int i = 0; i < NUMBERS; i++)
     {
         arrayValues[i] = rand() % 1000000000;
@@ -68,5 +68,6 @@ int main() {
     // Should be the same each run of the program
     cout << "\nPrimes found: " << primes << endl;
 
+    delete[] arrayValues;
     return 0;
 }
