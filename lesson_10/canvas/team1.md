@@ -30,11 +30,8 @@ Note: This is an option for compiling C++ programs if you don't have a compiler 
 
 ![](./assets/hidden_files.png)
 
-5) Next, select the `Makefile` file and add the following `-pthread` where hightlighted in the image below.
 
-![](./assets/pthreads_option.png)
-
-6) Copy `team1.cpp` content to `main.cpp` in repl.it
+5) Copy `team1.cpp` content to `main.cpp` in repl.it
 
 
 ### Compiling programs in replit.com (if the RUN button doesn't work)
