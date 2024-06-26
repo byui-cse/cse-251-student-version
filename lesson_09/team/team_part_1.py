@@ -56,10 +56,11 @@ Suggestions and team Discussion:
 - Are the philosophers each eating and thinking the same amount?
     - Modify your code to track how much eat philosopher is eating.
 - Using lists for the philosophers and forks will help you in this program. For example:
-  philosophers[i] needs forks[i] and forks[i+1] to eat (the % operator helps).
+  philosophers[i] needs forks[i] and forks[(i+1) % PHILOSOPHERS] to eat (the % operator helps).
 """
 
 import time
+import random
 import threading
 
 PHILOSOPHERS = 5
