@@ -65,7 +65,7 @@ int main() {
         }
     }
 
-    // Should be 52 primes found
+    // Should be the same each run of the program
     cout << "\nPrimes found: " << primes << endl;
 
     return 0;
