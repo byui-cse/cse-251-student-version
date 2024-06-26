@@ -2,6 +2,8 @@
  * CSE 251, Week 10
  * Team 1 - finding primes in an array
  *
+ * NOTE: You are using the thread class, NOT PThreads!!!!!!!
+ *
  * TODO
  * 1) Get this program compiling an running in a compiler or replit.com
  * 2) Create a thread to process the array
@@ -16,21 +18,26 @@
 
 using namespace std;
 
-#define NUMBERS  500
+#define NUMBERS 500
 
-mutex counterLock;  // lock for primes
-int primes = 0;     // Global count
+mutex counterLock; // lock for primes
+int primes = 0;    // Global count
 
 // ----------------------------------------------------------------------------
 int isPrime(int number)
 {
-    if (number <= 3 && number > 1) {
-        return 1;            // as 2 and 3 are prime
-    } else if (number % 2 == 0 || number % 3 == 0) {
-        return 0;     // check if number is divisible by 2 or 3
-    } else
+    if (number <= 3 && number > 1)
     {
-        for (unsigned int i = 5; i * i <= number; i += 6) {
+        return 1; // as 2 and 3 are prime
+    }
+    else if (number % 2 == 0 || number % 3 == 0)
+    {
+        return 0; // check if number is divisible by 2 or 3
+    }
+    else
+    {
+        for (unsigned int i = 5; i * i <= number; i += 6)
+        {
             if (number % i == 0 || number % (i + 2) == 0)
                 return 0;
         }
@@ -38,7 +45,8 @@ int isPrime(int number)
     }
 }
 
-int main() {
+int main()
+{
 
     srand(42);
 
@@ -47,11 +55,12 @@ int main() {
     for (int i = 0; i < NUMBERS; i++)
     {
         arrayValues[i] = rand() % 1000000000;
-//        cout << arrayValues[i] << ", ";
+        //        cout << arrayValues[i] << ", ";
     }
     cout << endl;
 
-    cout << endl << "Starting findPrimes" << endl;
+    cout << endl
+         << "Starting findPrimes" << endl;
     // Loop through the array looking for prime numbers
     int start = 0;
     int end = NUMBERS - 1;
