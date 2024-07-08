@@ -27,7 +27,7 @@ Instructions:
 
 - Create READERS reader processes
 
-- You can use sleep() statements for any process.
+- You can NOT use sleep() statements.
 
 - You are able (should) to use lock(s) and semaphores(s).  When using locks, you can't
   use the arguments "block=False" or "timeout".  Your goal is to make your
