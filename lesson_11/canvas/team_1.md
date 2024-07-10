@@ -10,6 +10,12 @@ You will be creating a Java program to search for prime numbers in an array
 
 Note: this is a team activity, you should take turns coding each week.  If a team member already knows how to implement the activity, they should let another team member do the coding.
 
+### Using online compiler
+
+The website onlinegdb is an online compiler that can be used for this acitivity.
+
+- https://www.onlinegdb.com/
+
 ### Using online replit.com
 
 This is an option for writing and running Java programs if you don't have a compiler on your computer.

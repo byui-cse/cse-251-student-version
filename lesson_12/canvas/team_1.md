@@ -12,6 +12,7 @@ Note: this is a team activity, you should take turns coding each week.  If a tea
 
 The file `team1.go` is found in the folder `week12\team1` in Github.  It's very important to place this go file in it's own folder.
 
+
 ### Using online replit.com
 
 Note: This is an option for writing and running Go programs if you don't have a compiler on your computer.
