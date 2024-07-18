@@ -13,7 +13,8 @@ https://www.youtube.com/watch?v=86g8jAQug04
 
 
 Requesting a family from the server:
-request = Request_thread(f'{TOP_API_URL}/family/{id}')
+family_id = 6128784944
+request = Request_thread(f'{TOP_API_URL}/family/{family_id}')
 request.start()
 request.join()
 
@@ -26,7 +27,8 @@ Example JSON returned from the server
 }
 
 Requesting an individual from the server:
-request = Request_thread(f'{TOP_API_URL}/person/{id}')
+person_id = 2373686152
+request = Request_thread(f'{TOP_API_URL}/person/{person_id}')
 request.start()
 request.join()
 
