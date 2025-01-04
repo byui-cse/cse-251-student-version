@@ -31,13 +31,8 @@ from cse251turtle import *
 # Include CSE 251 common Python files. 
 from cse251 import *
 
-# No global variables besides the one below: draw_part_1
+# No global variables!!!
 
-"""
-You may change the following variable to `False` to skip drawing part 1, but you
-must set this value back to `True` when submitting the assignment.
-"""
-draw_part_1 = True # <--- You may change this but read above.
 
 def draw_square(tur, x, y, side, color='black'):
     """Draw Square"""
@@ -143,7 +138,7 @@ def run_no_threads(tur, log, main_turtle):
     tur.pensize(4)
 
     log.write('-' * 50)
-    log.start_timer('Start Drawing No Threads')
+    log.start_timer('\n\nStart Drawing No Threads')
     tur.move(0, 0)
 
     draw_squares(tur)
@@ -169,8 +164,9 @@ def run_with_threads(tur, log, main_turtle):
     tur.pensize(0.5)
     draw_coord_system(tur, 0, 0, size=375)
     tur.pensize(4)
+
     log.write('-' * 50)
-    log.start_timer('Start Drawing With Threads')
+    log.start_timer('\n\nStart Drawing With Threads')
     tur.move(0, 0)
 
     # TODO - Start adding your code here.
@@ -213,7 +209,10 @@ def main():
     turtle251 = CSE251Turtle()
 
     # Test 1 - Drawing with no threads
-    if draw_part_1:
+    # Rename/remove the file "drawpart1.txt" if you want to skip the 
+    # drawing of part 1
+    if os.path.exists("drawpart1.txt"):
+        main_turtle.clear()
         run_no_threads(turtle251, log, main_turtle)
     
     main_turtle.clear()
