@@ -19,9 +19,6 @@ import json
 # Include cse 251 common Python files
 from cse251 import *
 
-# TODO Create a class based on (threading.Thread) that will
-# make the API call to request data from the website
-
 class Request_thread(threading.Thread):
     # TODO - Add code to make an API call and return the results
     # https://realpython.com/python-requests/
@@ -60,7 +57,6 @@ if __name__ == '__main__':
     #        the deck ID here.  You only need to run the 
     #        team_get_deck_id.py program once. You can have
     #        multiple decks if you need them
-
     deck_id = 'ENTER ID HERE'
 
     # Testing Code >>>>>
