@@ -1,3 +1,4 @@
+
 /************************************
 Course: cse 251
 File: team1.java
@@ -26,46 +27,45 @@ Part 3:
   of threads.
 
 ************************************/
-import java.util.Random; 
-import java.lang.Math; 
+import java.util.Random;
+import java.lang.Math;
 
-public class Main {
+public class team1 {
 
-  static boolean isPrime(long n) 
-  { 
-      // Corner cases 
-      if (n <= 1) return false; 
-      if (n <= 3) return true; 
-    
-      // This is checked so that we can skip  
-      // middle five numbers in below loop 
-      if (n % 2 == 0 || n % 3 == 0) return false; 
-    
-      for (long i = 5; i * i <= n; i = i + 6) 
-        if (n % i == 0 || n % (i + 2) == 0) 
-          return false; 
-    
-      return true; 
+  static boolean isPrime(long n) {
+    // Corner cases
+    if (n <= 1)
+      return false;
+    if (n <= 3)
+      return true;
+
+    // This is checked so that we can skip
+    // middle five numbers in below loop
+    if (n % 2 == 0 || n % 3 == 0)
+      return false;
+
+    for (long i = 5; i * i <= n; i = i + 6)
+      if (n % i == 0 || n % (i + 2) == 0)
+        return false;
+
+    return true;
   }
 
   public static void main(String[] args) {
-    System.out.println("Hello world!");
+    System.out.println("Finding Primes in an Array\n");
 
-    // create instance of Random class 
-    Random rand = new Random(); 
+    // create instance of Random class
+    Random rand = new Random();
 
     int count = 1000;
     long[] array = new long[count];
-    for (int i = 0; i < count; i++) 
-    {
+    for (int i = 0; i < count; i++) {
       array[i] = Math.abs(rand.nextInt());
     }
 
-  // TODO - this is just sample code. you can remove it.
-    for (int i = 0; i < count; i++) 
-    {
-      if (isPrime(array[i]))
-      {
+    // TODO - this is just sample code. you can remove it.
+    for (int i = 0; i < count; i++) {
+      if (isPrime(array[i])) {
         System.out.println(array[i]);
       }
     }
